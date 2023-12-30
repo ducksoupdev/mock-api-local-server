@@ -116,12 +116,13 @@ Query string parameters are also supported. For example, the file `/api/test/POS
 
 The following CLI flags are available:
 
-| Option          | Description               | Default  |
-|-----------------|---------------------------|----------|
-| `--port`        | Set the port to use.      | `8080`   |
-| `--static-dirs` | Set the directory to use. | `public` |
-| `--create`      | Enable resource creation. | `false`  |
-| `--use-https`   | Enable HTTPS.             | `false`  |
+| Option          | Description                        | Default  |
+|-----------------|------------------------------------|----------|
+| `--port`        | Set the port to use.               | `8080`   |
+| `--static-dirs` | Set the directories to serve from. | `public` |
+| `--extensions`  | Set the default file extensions.   | `json`   |
+| `--create`      | Enable resource creation.          | `false`  |
+| `--use-https`   | Enable HTTPS.                      | `false`  |
 
 ```json
 {
