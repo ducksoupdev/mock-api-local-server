@@ -1,0 +1,48 @@
+#!/usr/bin/env node
+
+/* tslint:disable */
+const join = require('path').join
+const exists = require('fs').existsSync
+const { program } = require('commander')
+const chalk = require('chalk')
+const httpServer = require('../lib/http.cjs')
+
+program.on('--help', () => {
+  console.log()
+  console.log(chalk.gray('    # start the mock server'))
+  console.log('    $ mock-server')
+  console.log()
+})
+
+program
+  .option('--config [config file]', 'Specify a config file path', 'mock-api-local-server.config.js')
+  .option('--port [port]', 'Port to use - default is `8080`', '8080')
+  .option('--static-dirs [static directories...]', 'Static directories for public assets - default is `public`', ['public'])
+  .option('--extensions [extensions]', 'Set file extension fallback for resolving files in the static directory. When set, if a file is not found, the given extensions will be added to the file name and searched for - default is `json`', ['json'])
+  .option('--use-https', 'Start in HTTPS mode using a self-signed certificate - default is `false`', false)
+  .option('--create', 'Create resources for POST, PUT or PATCH - default is `false`', false)
+  .parse(process.argv)
+
+console.log()
+process.on('exit', () => {
+  console.log()
+})
+
+const opts = program.opts()
+const configFile = opts.config
+const extensions = opts.extensions
+const port = parseInt(opts.port, 10)
+const staticDirs = opts.staticDirs
+const useHttps = opts.useHttps
+const create = opts.create
+
+let localConfig = null
+
+// load config file if one exists
+const configFilePath = join(process.cwd(), configFile)
+if (exists(configFilePath)) {
+  localConfig = require(configFilePath)
+}
+
+// start the server
+httpServer(localConfig, port, staticDirs, extensions, useHttps, create)
