@@ -1,9 +1,10 @@
-# Mock server
+# Mock API local server
 
-This is a mock server for testing purposes. It serves and maps JSON files to URLs. It also handles http writes (POST, PUT, PATCH, DELETE).
+This is a mock API server for local development. It serves and maps JSON files to URLs. It also handles http writes (POST, PUT, PATCH, DELETE).
 
 ## Contents
 
+- [Installation](#installation)
 - [Getting started](#getting-started)
   - [Routes](#routes)
   - [The `index.json` file](#the-indexjson-file)
@@ -17,6 +18,18 @@ This is a mock server for testing purposes. It serves and maps JSON files to URL
   - [macOS](#macos)
   - [CLI flags](#cli-flags)
 - [Development](#development)
+
+## Installation
+
+Run the following to install:
+
+```bash
+# install globally
+npm i -g mock-api-local-server
+
+# install local to your project
+npm i mock-api-local-server
+```
 
 ## Getting started
 
