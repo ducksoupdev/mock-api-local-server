@@ -15,10 +15,10 @@ program.on('--help', () => {
 })
 
 program
-  .option('--config [config file]', 'Specify a config file path', 'mock-server.config.js')
+  .option('--config [config file]', 'Specify a config file path', 'mock-api-local-server.config.js')
   .option('--port [port]', 'Port to use - default is `8080`', '8080')
   .option('--static-dirs [static directories...]', 'Static directories for public assets - default is `public`', ['public'])
-  .option('--extensions [extensions]', 'Set file extension fallback for resolving files in the static directory. When set, if a file is not found, the given extensions will be added to the file name and searched for - default is `null`', null)
+  .option('--extensions [extensions]', 'Set file extension fallback for resolving files in the static directory. When set, if a file is not found, the given extensions will be added to the file name and searched for - default is `json`', ['json'])
   .option('--use-https', 'Start in HTTPS mode using a self-signed certificate - default is `false`', false)
   .option('--create', 'Create resources for POST, PUT or PATCH - default is `false`', false)
   .parse(process.argv)

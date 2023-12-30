@@ -1,20 +1,21 @@
 {
-  "name": "@vungle/mock-server",
-  "version": "1.0.2",
-  "description": "A mock server for testing",
+  "name": "mock-api-local-server",
+  "version": "1.0.0",
+  "description": "A mock API server for local development",
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Vungle/Monetize.git"
+    "url": "https://github.com/ducksoupdev/mock-api-local-server.git"
   },
   "bin": {
-    "mock-server": "bin/mock-server"
+    "mals": "bin/mals",
+    "mock-api-local-server": "bin/mals"
   },
   "scripts": {
-    "build": "pkg -t linux,macos --out-path dist .",
     "generate-cert": "cd certs && openssl req -x509 -newkey rsa:4096 -keyout keytmp.pem -out cert.pem -days 1825 && openssl rsa -in keytmp.pem -out key.pem && del keytmp.pem",
-    "start": "node bin/mock-server",
-    "start:https": "node bin/mock-server --use-https",
-    "start:create": "node bin/mock-server --create-resource"
+    "start": "node bin/mals",
+    "start:https": "node bin/mals --use-https",
+    "start:create": "node bin/mals --create"
   },
   "devDependencies": {
     "pkg": "^5.8.1",
