@@ -1,0 +1,32 @@
+{
+  "name": "@vungle/mock-server",
+  "version": "1.0.2",
+  "description": "A mock server for testing",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Vungle/Monetize.git"
+  },
+  "bin": {
+    "mock-server": "bin/mock-server"
+  },
+  "scripts": {
+    "build": "pkg -t linux,macos --out-path dist .",
+    "generate-cert": "cd certs && openssl req -x509 -newkey rsa:4096 -keyout keytmp.pem -out cert.pem -days 1825 && openssl rsa -in keytmp.pem -out key.pem && del keytmp.pem",
+    "start": "node bin/mock-server",
+    "start:https": "node bin/mock-server --use-https",
+    "start:create": "node bin/mock-server --create-resource"
+  },
+  "devDependencies": {
+    "pkg": "^5.8.1",
+    "standard": "^17.0.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "chalk": "^4.1.2",
+    "commander": "^10.0.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "http-proxy-middleware": "^2.0.6",
+    "mkdirp": "^2.1.5"
+  }
+}
