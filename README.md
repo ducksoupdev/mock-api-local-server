@@ -85,6 +85,11 @@ Error responses can be HTML or JSON. **Only a single file can exist in the direc
 
 As an example, to force a 404 response for URL `/api/not-found`, create either `/api/not-found/404.json` or `/api/not-found/404.html` with appropriate content for the response.
 
+For `POST`, `PUT`, `PATCH` and `DELETE` requests, an error response file can be created that sets the response.
+Error responses must be JSON. **Only a single file can exist in the directory**.
+
+As an example, to force a 404 response for URL `/api/not-found`, create a `/api/not-found/POST_404.json` file with appropriate content for the response.
+
 ## Resources
 
 The mock server provides automatic `POST`, `PUT`, `PATCH` and `DELETE` methods for any URL path. This allows local mocking of API endpoints.

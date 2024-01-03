@@ -1,6 +1,6 @@
 {
   "name": "mock-api-local-server",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "A mock API server for local development",
   "license": "MIT",
   "repository": {
